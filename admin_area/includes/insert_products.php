@@ -1,12 +1,12 @@
 <?php require_once 'includes/header.php';
 
 if (isset($_POST['submit'])) {
-	$product_title = $_POST['product_title'];
-	$product_cat = $_POST['product_cat'];
-	$cat_id = $_POST['cat'];
+	$product_title = $getFromU->checkInput($_POST['product_title']);
+	$product_cat = $getFromU->checkInput($_POST['product_cat']);
+	$cat_id = $getFromU->checkInput($_POST['cat']);
 	$product_price = $_POST['product_price'];
-	$product_desc = $_POST['product_desc'];
-	$product_keywords = $_POST['product_keywords'];
+	$product_desc = $getFromU->checkInput($_POST['product_desc']);
+	$product_keywords = $getFromU->checkInput($_POST['product_keywords']);
 
 	$product_img1 = $_FILES['product_img1']['name'];
 	$product_img2 = $_FILES['product_img2']['name'];

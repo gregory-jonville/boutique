@@ -20,5 +20,6 @@
     <!-- THEME STYLES-->
     <link rel="stylesheet" type="text/css" href="./assets/css/normalize.css">
     <link href="./assets/css/main.min.css" rel="stylesheet" />
+    <!-- MAIN CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
   </head>

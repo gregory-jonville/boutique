@@ -1,4 +1,4 @@
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">Catégorie</h1>
 </div>

@@ -19,15 +19,9 @@ $get_products = $getFromU->viewAllFromTable("products");
 $count_products = count($get_products);
 
 $count_sell_products = $getFromU->count_product_by_status("Complete");
-
-
 ?>
 
-
-
-
-
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">PROFILS</h1>
 </div>
@@ -99,4 +93,4 @@ $count_sell_products = $getFromU->count_product_by_status("Complete");
     }
 </style>
 </div>
-<!-- END PAGE CONTENT-->
+<!-- END -->

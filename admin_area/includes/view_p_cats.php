@@ -1,4 +1,4 @@
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">Catégories de produit</h1>
 </div>
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['insert_product_cat_msg']; unset($_SESSION['insert_product_cat_msg']); ?>
+              <?= $_SESSION['insert_product_cat_msg']; unset($_SESSION['insert_product_cat_msg']); ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['product_update_msg']; unset($_SESSION['product_update_msg']); ?>
+              <?= $_SESSION['product_update_msg']; unset($_SESSION['product_update_msg']); ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['delete_p_cat_msg']; unset($_SESSION['delete_p_cat_msg']); ?>
+              <?= $_SESSION['delete_p_cat_msg']; unset($_SESSION['delete_p_cat_msg']); ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -86,16 +86,16 @@
                     ?>
 
                     <tr>
-                        <td><?php echo $p_cat_id; ?></td>
-                        <td><?php echo $p_cat_title; ?></td>
-                        <td><?php echo $p_cat_desc; ?></td>
-                        <td><?php echo $product_sold; ?></td>
+                        <td><?= $p_cat_id; ?></td>
+                        <td><?= $p_cat_title; ?></td>
+                        <td><?= $p_cat_desc; ?></td>
+                        <td><?= $product_sold; ?></td>
                         
                         <td>
-                            <a class="text-info" href="index.php?edit_p_cat=<?php echo $p_cat_id; ?>"><i class="fas fa-edit"></i> Editer</a>
+                            <a class="text-info" href="index.php?edit_p_cat=<?= $p_cat_id; ?>"><i class="fas fa-edit"></i> Editer</a>
                         </td>
                         <td>
-                            <a class="text-danger" onclick="DeletePCat('<?php echo $p_cat_id; ?>')"><i class="fas fa-trash-alt"></i> X</a>
+                            <a class="text-danger" onclick="DeletePCat('<?= $p_cat_id; ?>')"><i class="fas fa-trash-alt"></i> X</a>
                         </td>
 
                     </tr>
@@ -109,10 +109,10 @@
 </div>
 
 
-<!-- CORE PLUGINS, Must Need-->
+<!-- CORE PLUGINS-->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- PAGE LEVEL SCRIPTS-->
+<!-- SCRIPTS-->
 <script>
     $(function() {
         $('#example-table2').DataTable({

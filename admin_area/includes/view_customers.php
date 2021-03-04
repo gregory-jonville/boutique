@@ -1,4 +1,4 @@
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">Clients</h1>
 </div>
@@ -95,10 +95,9 @@
 </div>
 
 
-<!-- CORE PLUGINS, Must Need-->
+<!-- CORE PLUGINS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- PAGE LEVEL SCRIPTS-->
 <script>
     $(function() {
         $('#example-table').DataTable({

@@ -1,4 +1,4 @@
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">Paiements</h1>
 </div>
@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-                <?php echo $_SESSION['delete_payment_msg'];
+                <?= $_SESSION['delete_payment_msg'];
                 unset($_SESSION['delete_payment_msg']); ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -67,15 +67,15 @@
                     ?>
 
                         <tr>
-                            <td><?php echo $i; ?></td>
-                            <td><?php echo $invoice_no; ?></td>
-                            <td class="text-right">$ <?php echo number_format($amount, 2); ?></td>
-                            <td><?php echo $payment_mode; ?></td>
-                            <td><?php echo $ref_no; ?></td>
-                            <td><?php echo $code; ?></td>
-                            <td><?php echo $payment_date; ?></td>
+                            <td><?= $i; ?></td>
+                            <td><?= $invoice_no; ?></td>
+                            <td class="text-right">$ <?= number_format($amount, 2); ?></td>
+                            <td><?= $payment_mode; ?></td>
+                            <td><?= $ref_no; ?></td>
+                            <td><?= $code; ?></td>
+                            <td><?= $payment_date; ?></td>
                             <td>
-                                <a class="text-danger" onclick="DeletePayment('<?php echo $payment_id; ?>')"><i class="fas fa-trash-alt"></i> X</a>
+                                <a class="text-danger" onclick="DeletePayment('<?= $payment_id; ?>')"><i class="fas fa-trash-alt"></i> X</a>
                             </td>
 
                         </tr>
@@ -89,10 +89,10 @@
 </div>
 
 
-<!-- CORE PLUGINS, Must Need-->
+<!-- CORE PLUGINS-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- PAGE LEVEL SCRIPTS-->
+<!-- SCRIPTS-->
 <script>
     $(function() {
         $('#example-table').DataTable({

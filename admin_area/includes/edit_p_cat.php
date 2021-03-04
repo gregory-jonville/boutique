@@ -2,16 +2,16 @@
 
 
 if (isset($_GET['edit_p_cat'])) {
-	$p_cat_id = $_GET['edit_p_cat'];
+	$p_cat_id = $getFromU->checkInput($_GET['edit_p_cat']);
 
-	$view_p_category 	= $getFromU->view_All_By_p_cat_ID($p_cat_id);
+	$view_p_category = $getFromU->view_All_By_p_cat_ID($p_cat_id);
 	$p_cat_title = $view_p_category->p_cat_title;
 	$p_cat_desc = $view_p_category->p_cat_desc;
 }
 
 if (isset($_POST['update_p_cat'])) {
-	$p_cat_title = $_POST['p_cat_title'];
-	$p_cat_desc	= $_POST['p_cat_desc'];
+	$p_cat_title = $getFromU->checkInput($_POST['p_cat_title']);
+	$p_cat_desc	= $getFromU->checkInput($_POST['p_cat_desc']);
 	$p_cat_id = $_POST['p_cat_id'];
 
 	$update_p_cat = $getFromU->update_p_cat("product_categories", $p_cat_id, array("p_cat_title" => $p_cat_title, "p_cat_desc" => $p_cat_desc));

@@ -18,7 +18,7 @@ if (isset($_GET['edit_user'])) {
 if (isset($_POST['update_user'])) {
 	$admin_name = $getFromU->checkInput($_POST['admin_name']);
 	$admin_email = $getFromU->checkInput($_POST['admin_email']);
-	$admin_pass = $getFromU->checkInput($_POST['admin_pass']);
+	$admin_pass = $_POST['admin_pass'];
 	$admin_contact = $getFromU->checkInput($_POST['admin_contact']);
 	$admin_country = $getFromU->checkInput($_POST['admin_country']);
 	$admin_job = $getFromU->checkInput($_POST['admin_job']);

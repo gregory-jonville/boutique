@@ -1,20 +1,15 @@
-<?php require_once 'includes/header.php'; ?>
-
-<?php
+<?php require_once 'includes/header.php'; 
 
 if (isset($_GET['edit_cat'])) {
-	$cat_id = $_GET['edit_cat'];
-
+	$cat_id = $getFromU->checkInput($_GET['edit_cat']);
 	$view_category 	= $getFromU->view_All_By_cat_ID($cat_id);
 	$cat_title = $view_category->cat_title;
 	$cat_desc = $view_category->cat_desc;
 }
 
-
-
 if (isset($_POST['update_cat'])) {
-	$cat_title = $_POST['cat_title'];
-	$cat_desc = $_POST['cat_desc'];
+	$cat_title = $getFromU->checkInput($_POST['cat_title']);
+	$cat_desc = $getFromU->checkInput($_POST['cat_desc']);
 	$cat_id = $_POST['cat_id'];
 
 	$update_cat = $getFromU->update_cat("categories", $cat_id, array("cat_title" => $cat_title, "cat_desc" => $cat_desc));
@@ -46,7 +41,7 @@ if (isset($_POST['update_cat'])) {
 				<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
 					<div class="form-row mb-3">
 						<div class="col-md-9">
-							<input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>" required>
+							<input type="hidden" name="cat_id" value="<?= $cat_id; ?>" required>
 						</div>
 					</div>
 					<div class="form-row mb-3">
@@ -54,7 +49,7 @@ if (isset($_POST['update_cat'])) {
 							<label for="cat_title">Titre</label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="cat_title" class="form-control" id="cat_title" value="<?php echo $cat_title; ?>" placeholder="Titre" required>
+							<input type="text" name="cat_title" class="form-control" id="cat_title" value="<?= $cat_title; ?>" placeholder="Titre" required>
 							<div class="invalid-feedback">
 								Entre un titre.
 							</div>
@@ -67,7 +62,7 @@ if (isset($_POST['update_cat'])) {
 							<label for="cat_desc">Description</label>
 						</div>
 						<div class="col-md-9">
-							<textarea name="cat_desc" class="form-control" rows="6" id="cat_desc" placeholder="Description" required><?php echo $cat_desc; ?></textarea>
+							<textarea name="cat_desc" class="form-control" rows="6" id="cat_desc" placeholder="Description" required><?= $cat_desc; ?></textarea>
 							<div class="invalid-feedback">
 								Entrez une Description.
 							</div>

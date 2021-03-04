@@ -1,4 +1,4 @@
-<!-- START PAGE CONTENT-->
+<!-- START -->
 <div class="page-heading">
     <h1 class="page-title">Ventes</h1>
 </div>
@@ -92,7 +92,7 @@
                             <td><?= $qty; ?></td>
                             <td><?= ucwords($size); ?></td>
                             <td><?= $order_date; ?></td>
-                            <td class="text-right">$ <?= number_format($due_amount, 2); ?></td>
+                            <td class="text-right"><?= number_format($due_amount, 2); ?> €</td>
                             <td><span class="w-100 badge <?php ($order_status === 'pending') ? print 'badge-danger' : print 'badge-success'; ?>"> <?= ucwords($order_status); ?></span></td>
                             <td>
                                 <a class="text-danger" onclick="DeleteOrder('<?= $order_id; ?>')"><i class="fas fa-trash-alt"></i> X</a>
@@ -109,10 +109,10 @@
 </div>
 
 
-<!-- CORE PLUGINS, Must Need-->
+<!-- CORE PLUGINS-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- PAGE LEVEL SCRIPTS-->
+<!-- SCRIPTS-->
 <script>
     $(function() {
         $('#example-table').DataTable({

@@ -11,13 +11,7 @@ $count_product_categories = count($get_product_categories);
 
 $get_pending_orders = $getFromU->viewAllFromTableWhereOrderStatus("pending_orders", "pending");
 $count_pending_orders = count($get_pending_orders);
-
-
-
 ?>
-
-
-
 
 <div class="container-fluid mt-5">
   <div class="row">

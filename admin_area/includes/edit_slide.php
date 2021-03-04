@@ -1,7 +1,7 @@
 <?php require_once 'includes/header.php';
 
 if (isset($_GET['edit_slide'])) {
-	$slide_id = $_GET['edit_slide'];
+	$slide_id =$getFromU->checkInput( $_GET['edit_slide']);
 
 	$view_slide = $getFromU->selectSlideBySlideID($slide_id);
 	$slide_name = $view_slide->slide_name;
@@ -12,9 +12,9 @@ if (isset($_GET['edit_slide'])) {
 
 if (isset($_POST['update_slide'])) {
 	$slide_id = $_POST['slide_id'];
-	$slide_name = $_POST['slide_name'];
-	$slide_title = $_POST['slide_title'];
-	$slide_text = $_POST['slide_text'];
+	$slide_name = $getFromU->checkInput($_POST['slide_name']);
+	$slide_title = $getFromU->checkInput($_POST['slide_title']);
+	$slide_text = $getFromU->checkInput($_POST['slide_text']);
 
 	$slide_image = $_FILES['slide_image']['name'];
 	$temp_name = $_FILES['slide_image']['tmp_name'];
@@ -40,7 +40,7 @@ if (isset($_POST['update_slide'])) {
 <nav aria-label="breadcrumb" class="my-4">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="index.php?dashboard">Dashboard</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Update Slide</li>
+		<li class="breadcrumb-item active" aria-current="page">Slide</li>
 	</ol>
 </nav>
 
