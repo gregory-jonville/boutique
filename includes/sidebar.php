@@ -10,7 +10,6 @@
     ?>
     <li class="list-group-item"><a href="shop.php?p_cat_id=<?= $p_cat_id; ?>"><?= $p_cat_title; ?></a></li>
     <?php } ?>
-
   </ul>
 </div>
 

@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
 			<?php endif ?>
 
 
-			<form method="post" action="#" class="needs-validation" novalidate>
+			<form method="post" action="" class="needs-validation" novalidate>
 				<div class="form-row">
 					<div class="col-12 mb-3">
 						<label for="email" class="font-weight-bold">Email</label>
@@ -65,13 +65,12 @@ if (isset($_POST['login'])) {
 		<a href="customer_register.php">Vous êtes nouveau ? Enregistrez vous ici</a>
 
 		<script>
-			// Example starter JavaScript for disabling form submissions if there are invalid fields
+			// evite l'envoi de données éronnées
 			(function() {
 				'use strict';
 				window.addEventListener('load', function() {
-					// Fetch all the forms we want to apply custom Bootstrap validation styles to
 					var forms = document.getElementsByClassName('needs-validation');
-					// Loop over them and prevent submission
+					// empeche le renvoie du form
 					var validation = Array.prototype.filter.call(forms, function(form) {
 						form.addEventListener('submit', function(event) {
 							if (form.checkValidity() === false) {

@@ -8,7 +8,7 @@ $db = new Database();
 $getFromU = new User($db);
 $pdo = $db->connectDb();
 
-define('BASE_URL', 'http://localhost/boutique/');
+define('BASE_URL', 'http://localhost/Projectpool2/boutique/');
 
 
 
