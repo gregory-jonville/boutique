@@ -1,13 +1,7 @@
 <?php
 if (isset($_GET['p_cat_id'])) {
-	$p_cat_id = $_GET['p_cat_id'];
-	$per_page = 3;
-	if (isset($_GET['page'])) {
-		$page = $_GET['page'];
-	} else {
-		$page = 1;
-	}
-	$start_from = ($page - 1) * $per_page;
+	$p_cat_id = $getFromU->checkInput($_GET['p_cat_id']);
+	
 
 	$row_p_cats = $getFromU->getAllByID("product_categories", $p_cat_id);
 	foreach ($row_p_cats as $row_p_cat) {
@@ -29,7 +23,7 @@ if (isset($_GET['p_cat_id'])) {
 
 	<div class="row">
 		<?php
-		$get_products_by_cat_id = $getFromU->selectAllProductByP_cat_ID($start_from, $per_page, $p_cat_id);
+		$get_products_by_cat_id = $getFromU->selectAllProductByP_cat_ID($p_cat_id);
 		$count_product = count($get_products_by_cat_id);
 		if ($count_product == 0) {
 		?>
@@ -73,31 +67,7 @@ if (isset($_GET['p_cat_id'])) {
 
 	</div> <!-- ROW END -->
 
-	<div class="row mb-4">
-		<div class="col-lg-6 offset-lg-3 d-flex">
-			<ul class="pagination mx-auto">
-				<?php
-				$total_pages = $getFromU->countPagesBy_P_Cat("products", $per_page, $p_cat_id);
-				if ($total_pages >= 2) {
-				?>
-					<li class="page-item <?php if ($_GET['page'] == 1) {
-												echo 'active';
-											} ?>"><a class="page-link" href="shop.php?page=1">1ère page</a></li>
-					<?php
-					for ($i = 2; $i < $total_pages; $i++) {
-					?>
-						<li class="page-item <?php if ($_GET['page'] == $i) {
-													echo 'active';
-												} ?>"><a class="page-link" href="shop.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-					<?php } ?>
-					<li class="page-item <?php if ($_GET['page'] == $total_pages) {
-												echo 'active';
-											} ?>"><a class="page-link" href="shop.php?page=<?= $total_pages; ?>">Dernière page</a></li>
-				<?php } ?>
-
-			</ul>
-		</div>
-	</div> <!-- Pagination ROW END -->
+	
 
 
 <?php }

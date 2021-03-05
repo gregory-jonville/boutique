@@ -1,13 +1,7 @@
 <?php
 	if (!isset($_GET['p_cat_id'])) {
 		if (!isset($_GET['cat_id'])) {
-			$per_page = 3;
-			if (isset($_GET['page'])) {
-				$page = htmlspecialchars($_GET['page']);
-			}else{
-				$page = 1;
-			}
-			$start_from = ($page - 1) * $per_page;
+			
 ?>
 
   <div class="card-body">
@@ -17,7 +11,7 @@
 
 <div class="row">
 	<?php
-		$get_products = $getFromU->selectAllProducts($start_from, $per_page);
+		$get_products = $getFromU->selectAllProducts();
 		foreach ($get_products as $get_product) {
 			$product_id = $get_product->product_id;
 			$product_title = $get_product->product_title;
@@ -47,26 +41,7 @@
 
 </div> <!-- ROW END -->
 
-<div class="row mb-4">
-	<div class="col-lg-6 offset-lg-3 d-flex">
-		<ul class="pagination mx-auto">
 
-			<?php
-				$total_pages = $getFromU->countPages("products", $per_page);
-				if ($total_pages >=2) {
-			?>
-				<li class="page-item <?php if($page == 1) { echo 'active';}?>"><a class="page-link" href="shop.php?page=1">First Page</a></li>
-			<?php
-					for ($i = 2; $i < $total_pages; $i++) {
-			?>
-				<li class="page-item <?php if($page == $i) { echo 'active';}?>"  ><a class="page-link" href="shop.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-			<?php } ?>
-				<li class="page-item <?php if($page == $total_pages) { echo 'active';}?>"><a class="page-link" href="shop.php?page=<?= $total_pages; ?>">Last Page</a></li>
-			<?php } ?>
-
-		</ul>
-	</div>
-</div> <!-- Pagination ROW END -->
 
 
 <?php  } } ?>

@@ -18,15 +18,23 @@
     	return $var;
     }
 
-    public function search($search)
-    {
-      $sql = "SELECT * FROM products WHERE 	product_keywords LIKE ? OR roll LIKE ?";
-      $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(1, '%'.$search.'%', PDO::PARAM_STR);
-      $stmt->bindValue(2, '%'.$search.'%', PDO::PARAM_INT);
-      $stmt->execute();
-      return $stmt->fetchAll();
+  public function search($search)
+  {
+    $sql = "SELECT * FROM products WHERE 	product_title LIKE :product_title ";
+    $resultat = $this->pdo->prepare($sql);
+    $resultat->bindParam(':product_title', $search, PDO::PARAM_STR);
+    $resultat->execute();
+
+    if ($resultat->rowCount() == 0) {
+      $sql = "SELECT * FROM products WHERE 	product_title LIKE :product_title ";
+      $resultat = $this->pdo->prepare($sql);
+      $resultat->bindValue(':product_title', '%' . $search . '%', PDO::PARAM_STR);
+      $resultat->execute();
+      
     }
+    
+    return $resultat->fetchAll();
+  }
 
     public function login($customer_email, $customer_pass)
     {
@@ -51,10 +59,10 @@
       $stmt->bindParam(":admin_email", $admin_email, PDO::PARAM_STR);
       $stmt->execute();
       $admin = $stmt->fetch();
-      echo '1';
+      
 
       if (password_verify($admin_password, $admin->admin_pass)) {
-        echo '2';
+        
         $_SESSION['admin_email'] = $admin->admin_email;
         $_SESSION['admin_login_success_msg'] = "Vous êtes connecté en temps qu'admin";
         
@@ -294,18 +302,18 @@
       return $stmt->fetchAll();
     }
 
-    public function selectAllProducts($start_from, $per_page)
+    public function selectAllProducts()
     {
-      $sql = "SELECT * FROM products ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+      $sql = "SELECT * FROM products ORDER BY product_id DESC";
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute();
 
       return $stmt->fetchAll();
     }
 
-    public function selectAllProductByP_cat_ID($start_from, $per_page, $p_cat_id)
+    public function selectAllProductByP_cat_ID($p_cat_id)
     {
-      $sql = "SELECT * FROM products WHERE p_cat_id = :p_cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+      $sql = "SELECT * FROM products WHERE p_cat_id = :p_cat_id ORDER BY product_id DESC";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindParam(":p_cat_id", $p_cat_id);
       $stmt->execute();
@@ -326,9 +334,9 @@
       }
     }
 
-    public function selectAllProductBy_cat_ID($start_from, $per_page, $cat_id)
+    public function selectAllProductBy_cat_ID($cat_id)
     {
-      $sql = "SELECT * FROM products WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+      $sql = "SELECT * FROM products WHERE cat_id = :cat_id ORDER BY product_id DESC";
       $stmt = $this->pdo->prepare($sql);
        $stmt->bindParam(":cat_id", $cat_id);
       $stmt->execute();

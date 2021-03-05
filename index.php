@@ -77,8 +77,32 @@ require_once 'includes/navbar.php'; ?>
 <div class="container" id="content">
 	<div class="row">
 
-		<?php
+	<?php 
+	if (isset($_GET['search']) && !empty($_GET['user_query'])) {
+		$query = $getFromU->checkInput($_GET['user_query']);
+		$getProducts = $getFromU->search($query);
+		
+		if (empty($getProducts)) {
+			$error =  'il n\'y a pas de résultat pour :' .$query;
+		}
+		
+	} else {
 		$getProducts = $getFromU->selectLatestProduct();
+	}
+	
+	
+	
+	if (isset($error)) : ?>
+				<div class="d-flex justify-content-center alert alert-warning text-center alert-dismissible fade show" role="alert">
+					<?= $error; ?>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<?php endif ?>
+
+		<?php
+			
 		foreach ($getProducts as $getProduct) {
 			$product_id = $getProduct->product_id;
 			$product_title = $getProduct->product_title;
