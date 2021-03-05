@@ -2,7 +2,7 @@
 
 <?php
 	if (isset($_GET['c_id'])) {
-		$customer_id = $_GET['c_id'];
+		$customer_id = $getFromU->checkInput($_GET['c_id']);
 
 		$ip_add = $getFromU->getRealUserIp();
 		$status = "pending";
@@ -31,7 +31,6 @@
 
 		}
 	}
-
 ?>
 
 

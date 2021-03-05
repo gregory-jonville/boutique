@@ -104,14 +104,9 @@ require_once 'includes/navbar.php'; ?>
 						</div>
 					</div>
 				</div>
-			</div> <!-- SINGLE PRODUCT END -->
+			</div> <!-- END -->
 
 		<?php } ?>
-
-
-
-
-
 	</div>
 </div>
 

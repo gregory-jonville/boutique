@@ -49,7 +49,7 @@
 			$product_price = $get_product_by_cat_id->product_price;
 			$product_img1 = $get_product_by_cat_id->product_img1;
 	?>
-	<div class="col-sm-6 col-md-4 justify-content-center single">
+	<div class="col-sm-6 col-md-4 justify-content-center single"> <!-- START -->
 		<div class="product mb-4">
 			<div class="card">
 			  <a href="details.php?product_id=<?= $product_id ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?= $product_img1 ?>" alt="Card image cap"></a>
@@ -67,7 +67,7 @@
 			  </div>
 			</div>
 		</div>
-	</div> <!-- SINGLE PRODUCT END -->
+	</div> <!-- END -->
 	<?php } ?>  <!-- selectAllProductBy_cat_ID end -->
 
 </div> <!-- ROW END -->
@@ -89,7 +89,7 @@
 			<?php } ?>
 		</ul>
 	</div>
-</div> <!-- Pagination ROW END -->
+</div> <!-- Pagination END -->
 
 
 <?php } } ?>

@@ -7,8 +7,6 @@
 
 ?>
 
-
-
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Options de paiement</h5>

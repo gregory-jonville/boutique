@@ -7,14 +7,16 @@ if (!isset($_SESSION['admin_email'])) {
 
 <body class="fixed-navbar">
   <div class="page-wrapper">
-    <!-- START HEADER-->
+    <!-- HEADER-->
     <?php require_once 'includes/top_nav.php'; ?>
-    <!-- END HEADER-->
-    <!-- START SIDEBAR-->
+    <!-- HEADER-->
+
+    <!-- SIDEBAR-->
     <?php require_once 'includes/sidebar.php'; ?>
-    <!-- END SIDEBAR-->
+    <!-- SIDEBAR-->
+
     <div class="content-wrapper">
-      <!-- START PAGE CONTENT-->
+      <!-- START -->
 
 
       <?php
@@ -57,15 +59,8 @@ if (!isset($_SESSION['admin_email'])) {
       } elseif (isset($_GET['edit_user'])) {
         require_once 'includes/edit_user.php';
       }
-
-
-
       ?>
-
-
-
-
-      <!-- END PAGE CONTENT-->
+     <!-- END -->
 
     </div>
   </div>

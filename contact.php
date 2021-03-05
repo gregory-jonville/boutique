@@ -2,7 +2,6 @@
 
 require_once 'includes/navbar.php'; ?>
 
-
 <div id="content">
 	<div class="container">
 		<div class="row">
@@ -19,7 +18,6 @@ require_once 'includes/navbar.php'; ?>
 				<?php require_once 'includes/sidebar.php'; ?>
 			</div> <!-- col-md-3 End -->
 
-
 			<div class="col-md-9 mb-4">
 				<div class="card">
 				  <div class="card-header text-center">
@@ -31,13 +29,16 @@ require_once 'includes/navbar.php'; ?>
 						if (isset($_POST['submit'])) {
 
 							// L'admin recevra l'e-mail suivant ce code :
-							$sender_name = $_POST['name'];
-							$sender_email = $_POST['email'];
-							$sender_subject = $_POST['subject'];
-							$sender_message = $_POST['message'];
-
+							$sender_name = $getFromU->checkInput($_POST['name']);
+							$sender_email = $getFromU->checkInput($_POST['email']);
+							$sender_subject = $getFromU->checkInput($_POST['subject']);
+							$sender_message = $getFromU->checkInput($_POST['message']);
 							$receiver_email = "devzani.roy11@gmail.com";
-							mail($receiver_email,$sender_name, $sender_subject, $sender_message, $sender_email);
+							if (!filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
+								echo '<script>alert("Votre adresse mail n\'est pas valable.")</script>';
+							} else {
+								mail($receiver_email,$sender_name, $sender_subject, $sender_message, $sender_email);
+							}
 
 							// Réponse auto de l'admin à l'envoyeur :
 							$email = $_POST['email'];
@@ -125,23 +126,13 @@ require_once 'includes/navbar.php'; ?>
 				  </div>
 				</div>  <!-- Card End -->
 
-
-
 			</div> <!-- col-md-9 End -->
 
-
 		</div> <!-- Row End -->
-
-
-
-
 
 	  </div> <!-- SINGLE PRODUCT ROW END -->
 
 	</div>
 </div>
-
-
-
 
 <?php require_once 'includes/footer.php'; ?>

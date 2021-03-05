@@ -37,7 +37,7 @@ if (isset($_POST['update_pass'])) {
 	<div class="card-body">
 		<?php if (isset($error)) : ?>
 			<div class="alert alert-warning text-center alert-dismissible fade show" role="alert">
-				<?php echo $error; ?>
+				<?= $error; ?>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -46,7 +46,7 @@ if (isset($_POST['update_pass'])) {
 
 		<?php if (isset($update_pass_msg)) : ?>
 			<div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-				<?php echo $update_pass_msg; ?>
+				<?= $update_pass_msg; ?>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

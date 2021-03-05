@@ -2,7 +2,6 @@
 
 require_once 'includes/navbar.php'; ?>
 
-
 <div id="content">
 	<div class="container">
 		<div class="row">
@@ -23,12 +22,7 @@ require_once 'includes/navbar.php'; ?>
 				<?php require_once 'includes/show_all_products.php'; ?>
 				<?php require_once 'includes/show_all_products_by_p_cat_id.php'; ?>
 				<?php require_once 'includes/show_all_products_by_cat_id.php'; ?>
-
 			</div>
-
-
-
-
 		</div>
 	</div>
 </div>

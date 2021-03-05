@@ -14,16 +14,12 @@ if (isset($_POST['register'])) {
 	$cp = $getFromU->checkInput($_POST['c_address_cp']);
 	$c_image = $_FILES['c_image']['name'];
 	$c_image_tmp = $_FILES['c_image']['tmp_name'];
-
-
 	
 	$c_ip = $getFromU->getRealUserIp();
 
 	if (!filter_var($c_email, FILTER_VALIDATE_EMAIL)) {
 		$error = "L'adresse email '$c_email' est considérée comme invalide.";
 	  }
-
-	move_uploaded_file($c_image_tmp, "customer/assets/customer_images/$c_image");
 
 	$check_customer = $getFromU->check_customer_by_email($c_email);
 
@@ -49,6 +45,7 @@ if (isset($_POST['register'])) {
 		"customer_pass" => $password_hashed, "customer_country" => $c_country, 
 		"customer_city" => $c_city, "customer_contact" => $c_contact, 
 		"customer_address" => $c_address, "customer_image" => $c_image, "customer_cp" => $cp));
+		move_uploaded_file($c_image_tmp, "customer/assets/customer_images/$c_image");
 		
 	}		  
 	
@@ -230,13 +227,12 @@ if (isset($_POST['register'])) {
 						</form>
 
 						<script>
-							// Example starter JavaScript for disabling form submissions if there are invalid fields
+							// Permet de ne pas envoyer de données éronnées
 							(function() {
 							  'use strict';
 							  window.addEventListener('load', function() {
-							    // Fetch all the forms we want to apply custom Bootstrap validation styles to
 							    var forms = document.getElementsByClassName('needs-validation');
-							    // Loop over them and prevent submission
+							    // Permet d'éviter le renvoi du form
 							    var validation = Array.prototype.filter.call(forms, function(form) {
 							      form.addEventListener('submit', function(event) {
 							        if (form.checkValidity() === false) {
@@ -252,24 +248,10 @@ if (isset($_POST['register'])) {
 
 				  </div>
 				</div>
-
-
-
 			</div> <!-- col-md-9 End -->
-
-
 		</div> <!-- Row End -->
-
-
-
-
-
 	  </div> <!-- SINGLE PRODUCT ROW END -->
-
 	</div>
 </div>
-
-
-
 
 <?php require_once 'includes/footer.php'; ?>

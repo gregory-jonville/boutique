@@ -8,7 +8,7 @@ require_once 'includes/navbar.php'; ?>
 
 		<?php
 			if (isset($_GET['product_id'])) {
-				$the_product_id = htmlspecialchars($_GET['product_id']);
+				$the_product_id = $getFromU->checkInput($_GET['product_id']);
 
 				$get_products = $getFromU->viewProductByProductID($the_product_id);
 				
@@ -28,9 +28,6 @@ require_once 'includes/navbar.php'; ?>
 						$p_cat_id = $get_p_cat->p_cat_id;
 
 		?>
-
-
-
 
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">

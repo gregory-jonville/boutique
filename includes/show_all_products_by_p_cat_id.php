@@ -67,7 +67,7 @@ if (isset($_GET['p_cat_id'])) {
 							</div>
 						</div>
 					</div>
-				</div> <!-- SINGLE PRODUCT END -->
+				</div> <!--  END -->
 			<?php } ?>
 			<!-- selectAllProductByP_cat_ID end -->
 

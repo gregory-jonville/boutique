@@ -13,8 +13,6 @@ if (isset($_GET['order_id'])) {
 	$amount = $view_order->due_amount;
 }
 
-
-
 require_once '../includes/navbar.php';
 ?>
 

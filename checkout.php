@@ -26,25 +26,15 @@ require_once 'includes/navbar.php'; ?>
 					}else {
 						require_once 'payment_options.php';
 					}
-
-
 				?>
 			</div> <!-- col-md-9 End -->
 
-
-
 		</div> <!-- Row End -->
-
-
-
-
 
 	  </div> <!-- SINGLE PRODUCT ROW END -->
 
 	</div>
 </div>
-
-
 
 
 <?php require_once 'includes/footer.php'; ?>

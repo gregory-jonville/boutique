@@ -81,15 +81,14 @@ if (isset($_POST['login'])) {
             </div>
         </form>
     </div>
-    <!-- CORE PLUGINS -->
+    <!-- PLUGINS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- PAGE LEVEL PLUGINS -->
     <script src="./assets/js/jquery.validate.min.js"></script>
-    <!-- CORE SCRIPTS-->
+    <!-- SCRIPTS-->
     <script src="./assets/js/app.min.js"></script>
-    <!-- PAGE LEVEL SCRIPTS-->
+    <!-- SCRIPTS-->
     <script type="text/javascript">
         $(function() {
             $('#login-form').validate({
