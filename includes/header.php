@@ -43,7 +43,7 @@ foreach ($records as $record) {
 				<!-- row Starts -->
 				<div class="col-md-6">
 					<!-- col-md-6 offer Starts -->
-					<a href="customer/my_account.php" class="btn btn-info btn-sm">
+					<a href="customer/my_account.php" id="btnh" class="btn btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
 							echo "Bienvenue : <strong class='text-uppercase'>Invité</strong>";
