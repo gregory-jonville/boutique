@@ -5,10 +5,10 @@ require_once 'includes/navbar.php'; ?>
 <div class="container-fluid px-0" id="slider">
 	<div class="row">
 		<div class="col-md-12">
-			<!-- carousel slide starts -->
+			<!-- carousel -->
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> <!-- La classe .active doit être ajoutée à l'une des diapositives sinon, le carrousel ne sera pas visible. -->
 					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
@@ -64,7 +64,6 @@ require_once 'includes/navbar.php'; ?>
 	</div>
 </div>
 
-<div id="hot">
 	<div class="container-fluid mt-4 px-0">
 		<div class="row">
 			<div class="col-12">
@@ -72,7 +71,7 @@ require_once 'includes/navbar.php'; ?>
 			</div>
 		</div>
 	</div>
-</div>
+
 
 <div class="container" id="content">
 	<div class="row">
@@ -110,8 +109,8 @@ require_once 'includes/navbar.php'; ?>
 			$product_img1 = $getProduct->product_img1;
 		?>
 
-			<div class="col-sm-6 col-md-4 col-lg-3 single">
-				<div class="product mb-4">
+			<div class="col-sm-10 col-md-4 col-lg-3">
+				<div class="product mb-2">
 					<div class="card">
 						<a href="details.php?product_id=<?= $product_id ?>"><img class="card-img-top img-fluid p-4" src="admin_area/product_images/<?= $product_img1; ?>" alt="Card image cap"></a>
 						<div class="card-body text-center">

@@ -12,10 +12,10 @@ if (isset($_POST['register'])) {
 	$c_contact = $getFromU->checkInput($_POST['c_mobile']);
 	$c_address = $getFromU->checkInput($_POST['c_address']);
 	$cp = $getFromU->checkInput($_POST['c_address_cp']);
-	$c_image = $_FILES['c_image']['name'];
-	$c_image_tmp = $_FILES['c_image']['tmp_name'];
 	
 	$c_ip = $getFromU->getRealUserIp();
+
+	include_once 'check_picture.php';
 
 	if (!filter_var($c_email, FILTER_VALIDATE_EMAIL)) {
 		$error = "L'adresse email '$c_email' est considérée comme invalide.";
@@ -39,13 +39,16 @@ if (isset($_POST['register'])) {
 	} 
 	
 	if (empty($error)) {
+		
 		$password_hashed = password_hash($c_pass, PASSWORD_BCRYPT, array('cost' => 10));
 		$add_customer = $getFromU->create("customers", 
 		array("customer_name" => $c_name, "customer_email" => $c_email, 
 		"customer_pass" => $password_hashed, "customer_country" => $c_country, 
 		"customer_city" => $c_city, "customer_contact" => $c_contact, 
-		"customer_address" => $c_address, "customer_image" => $c_image, "customer_cp" => $cp));
-		move_uploaded_file($c_image_tmp, "customer/assets/customer_images/$c_image");
+		"customer_address" => $c_address, "customer_image" => $filename, "customer_cp" => $cp));
+		move_uploaded_file($_FILES["c_image"]["tmp_name"], "customer/assets/customer_images/" . $_FILES["c_image"]["name"]);
+		$add_msg = "Votre fichier a été téléchargé avec succès.";
+		
 		
 	}		  
 	
