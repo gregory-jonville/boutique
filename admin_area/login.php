@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
             <h2 class="login-title">Connexion</h2>
             <?php if (isset($error)) : ?>
                 <div class="alert alert-danger text-center text-white alert-dismissible fade show" role="alert">
-                    <?php echo $error; ?>
+                    <?= $error ?>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

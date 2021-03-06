@@ -10,7 +10,7 @@
         // Vérifie l'extension du fichier
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if(!array_key_exists($ext, $allowed)) {
-            $error = "Veuillez sélectionner un format de fichier valide.";
+            $error = "Veuillez sélectionner un format de fichier valide. (JPG, GIF, PNG ou JPEG)";
         } 
 
         // Vérifie la taille du fichier - 10Mo maximum
