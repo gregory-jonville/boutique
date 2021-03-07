@@ -25,8 +25,8 @@ if (isset($_POST['update'])) {
 	$customer_address_u = $_POST['c_address'];
 	$customer_cp_u = $_POST['cp'];
 
-	$customer_image_u = $_FILES['c_image']['name'];
-	$c_image_tmp = $_FILES['c_image']['tmp_name'];
+	
+	
 
 	if (password_verify($customer_pass, $get_customer->customer_pass)) {
 		if (isset($customer_name_u) && !empty($customer_name_u) && $customer_name != $customer_name_u) {
@@ -61,12 +61,17 @@ if (isset($_POST['update'])) {
 			$update_customer = $getFromU->update_customer($customer_id, "customers", array("customer_cp" => $customer_cp_u));
 		}
 
-		if (isset($customer_image_u) && !empty($customer_image_u) && $customer_image_u != $customer_image) {
-			$update_customer = $getFromU->update_customer($customer_id, "customers", array("customer_image" => $customer_cp_u));
-			move_uploaded_file($c_image_tmp, "assets/customer_images/$customer_image");
+		if (isset($_FILES["c_image"]["name"]) && !empty($_FILES["c_image"]["name"]) && $_FILES["c_image"]["name"] != $customer_image) {
+			
+			require_once '../check_picture.php';
+			if (empty($error)) {
+				$update_customer = $getFromU->update_customer($customer_id, "customers", array("customer_image" => $filename));
+				unlink("assets/customer_images/$customer_image");
+			move_uploaded_file($_FILES["c_image"]["tmp_name"], "assets/customer_images/$filename");
+			}
 		}
 
-		header('refresh:2');
+		header('refresh:5');
 	} else {
 		$error = "Mot de passe incorrect !";
 	}

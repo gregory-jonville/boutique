@@ -92,7 +92,7 @@ require_once 'includes/navbar.php'; ?>
 										</button>
 									</div>
 									<div class="col-lg-4  pr-lg-3 pr-1 ">
-										<a href="checkout.php" class="btn btn-outline-success form-control">Payer &nbsp<i class="fas fa-chevron-right"></i></a>
+										<a href="checkout.php" class="btn btn-outline-success form-control">Confirmer &nbsp<i class="fas fa-chevron-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -114,38 +114,6 @@ require_once 'includes/navbar.php'; ?>
 				  </div>
 				</div>
 			</div> <!-- col-md-9 End -->
-
-			<!-- <div class="col-md-3">
-				<div class="card">
-				  <h5 class="card-header text-center">Frais additionnels</h5>
-				  <div class="card-body">
-				    <p class="card-text text-muted text-justify">Hors promotions. Pour plus de renseignements, se référer aux <strong><a href="#">conditions générales</a></strong> de vente.</p>
-				    <table class="table table-hover text-center">
-						  <thead>
-						    <tr>
-						      <th scope="col">Description</th>
-						      <th scope="col">Tarifs</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <td>Prix</td>
-						      <td class="text-right"><?= number_format($total, 2); ?> €</td>
-						    </tr>
-						    <tr>
-						      <td>Livraison</td>
-						      <td class="text-right">$ <?= number_format($shipping = ($total * 5) / 100, 2); ?></td>
-						    </tr>
-						    <tr>
-						      <th>Total</th>
-						      <th class="text-right"><?= number_format($total + $shipping, 2); ?> €</th>
-						    </tr>
-						  </tbody>
-						</table>
-				  </div>
-				</div>
-			</div> -->
-
 		</div> <!-- Row End -->
 
 

@@ -228,7 +228,7 @@ body{
   text-align: left;
 }
 
-#footer .social a{
+/* #footer .social a{
   margin: 0px 10px 0px 0px;
   color: #ffffff;
   display: inline-block;
@@ -241,4 +241,4 @@ body{
   transition: all 0.2s ease-out;
   vertical-align: bottom;
   background-color: #555555;
-}
+} */
